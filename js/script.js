@@ -49,36 +49,28 @@ setTimeout (function () {
         var numeroUtente = parseInt(prompt("N° " + (arrayUtente.length+1) + " !"));
         //console.log(numeroUtente);
         arrayUtente.push(numeroUtente);
-        
     }
+
     console.log("Array Numeri Utente ", arrayUtente);
 
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-      
 
-    var risultato;
-    var messaggio;
+    var risultato = [];
+    var messaggio = "Sei riuscito ad individuare: ";
+    // pc [1, 2, 3] utente [3, 4, 5] 
 
     for (var i = 0; i < 5; i++) {
-
-        if (arrayNumeriCasuali[i] == arrayUtente[i]) {
-            risultato = arrayUtente[i];
+        if (inUnArray(arrayUtente[i], arrayNumeriCasuali)) {
+            risultato.push(arrayUtente[i]);
             //console.log("consollo la i dentro if", i);
             //console.log("Numero che sei riuscito ad indovinare: ", i, risultato);
+        }
+    }
+    console.log(messaggio + risultato.join(", "));
+    alert("I numeri casuali: " + arrayNumeriCasuali + "\n" + "I numeri che hai inseirto: " + arrayUtente + "\n" + messaggio + risultato.join(", "));
 
-            messaggio = "Sei riuscito ad individuare: " + risultato;
-            console.log(messaggio);
-        } 
-
-    }    
-
-    
-    
-
-    console.log("All'interno setTimeout"); //appare dopo in console
 }, 3000 );
 
-console.log("dopo il setTimeout"); //appare prima in console
 
 
 
